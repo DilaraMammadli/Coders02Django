@@ -1,0 +1,24 @@
+Product modeli
+
+	name --> charfield(200)
+	content --> richtextfield(blank=True, null=True)
+	price --> floatfield
+	discount_price --> floatfield(blank=True, null=True)
+	created_at --> datetimefield(auto_now_add=True)
+	updated_at --> datetimefield(auto_now=True)
+
+
+1) List seyfesi yaradin. Asagidaki kimi gorsensin datalar
+
+	<name> (Product Name-dirse adi product name kimi gorsensin)
+	<description> (ilk 50 uzunlugu, eger uzunlug 50den boyukdurse ardinca ...)
+	<total_price> (price - discount_price) (78980.0-dirsa bu sekilde gorsensin 78,980.00)
+	<created_at> (08.06.2023 bu sekilde gorsensin)
+
+
+2) Basqa List seyfesi yaradin. Asagidaki kimi gorsensin datalar
+
+	<name> (Product -dirsa adi "p/r/o/d/u/c/t" kimi gorsensin)
+	<description> (eger uzunlugu 2-e tam bolune bilirse ilk 50 uzunlugu, 3-e tam bolunurse ilk 51, eks halda ilk 49)
+	<total_price> (price - discount_price) (uzerine 10 gelib gosterin. Meselen 70-dirse 80 kimi gorsensin)
+	<created_at> (bugunku tarixden ne qeder kecib onu gostersin)

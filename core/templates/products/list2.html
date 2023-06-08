@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load numberformat %}
+
+{% block body %}
+<h1>Product List</h1>
+
+
+<ul>
+    {% for product in products%}
+        <li>
+            <a href="{% url 'mainapp:detail' product.id %}">{{product.name|title|show_title:10}} </a>
+            -- {{product.total_price|formatize }}
+            <br>
+            
+            {% if product.description |divide:2 %}
+                {{ product.description|safe|truncatechars:50 }}
+            {% ifelse product.description |divide:3 %}
+                {{ product.description|safe|truncatechars:60 }}
+            {%else%}
+                {{ product.description|safe|truncatechars:100 }}
+            {% endif %}
+
+            <p>{{ product.created_at|date:"d.m.Y" }}</p>
+            <p>{{ product.created_at|timesince }}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+<h1>Welcome to Django</h1>
+<br>
+
+{% include "products/include.html" %}
+
+{% endblock %}
